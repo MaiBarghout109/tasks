@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
+use App\Models\Task;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route :: get('about' , function(){
     $name = 'Mai' ;
  return view('about' , compact('name')) ;
 });
+
 
 
 Route :: get ('tasks',function(){
@@ -46,4 +50,22 @@ Route :: get ('show/{id}' , function($id){
     $task = $tasks[$id] ;
     return view ('show' , compact ('task'));
 });
+
+
+Route :: get('app',function(){
+    return view('layaout.app') ;
+}) ;
+
+Route :: get('taskss',function(){
+    return view('taskss') ;
+}) ;
+
+Route :: get('taskss' , [TaskController::class, 'index']) ;
+Route :: post('/store',[TaskController::class , 'store']);
+Route :: post('delete/{id}',[TaskController::class,'delete']);
+Route :: post('update/{id}',[TaskController::class,'update']);
+
+
+
+
 
