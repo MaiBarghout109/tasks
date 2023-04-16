@@ -46,6 +46,8 @@
                             <th>Task</th>
                             <th>Created_at</th>
                             <th>Updated_at</th>
+                            <th>Delete</th>
+                            <th>Update</th>
 
                             <th>&nbsp;</th>
                         </thead>
